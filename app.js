@@ -1,3 +1,5 @@
+let x 
+
 fetch('https://randomuser.me/api/').then((response) => {
     if (response.status === 200) {
         return response.json() 
@@ -5,17 +7,23 @@ fetch('https://randomuser.me/api/').then((response) => {
         throw new Error('Unable to fetch the puzzle')
     }
 }).then((data) => {
-    console.log(data.results[0].id.name)
+    printx(data)
+    
 }).catch((error) => {
     console.log(error)
 })
 
 
-$.ajax({
+ $.ajax({
     url: 'data.json',
     dataType: 'json',
     success: function(data) {
       console.log(data);
     }
   });
-      
+ 
+
+ function printx (data) {
+    document.writeln("<img src='" + data.results[0].picture.large + "'>" + "</img>")
+} 
+
